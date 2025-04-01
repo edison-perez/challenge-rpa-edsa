@@ -1,7 +1,7 @@
 {
-  "name": "ChallengeEDSA_202504",
+  "name": "Challenge Final",
   "projectId": "5bf4b59c-ec5d-466b-ac71-3977b2589011",
-  "description": "ReFramework Challenge EDSA 2025 ABRIL",
+  "description": " Cotizar productos en Amazon, Atendida",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.25.1-preview]",
@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "25.0.161.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.3",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
