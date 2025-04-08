@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="q9sJS3m30U-UYyOycaEOww" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com" CVScreenId="32f8133e-4fa8-41c4-a14c-d0a7a5bf3508" CvTextArea="345, 156, 97, 14" CvTextArgument="testosterone" CvType="Text" DesignTimeRectangle="346, 146, 1111, 34" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-role='button' tag='DIV' parentid='sac-suggestion-row-1-cell-1' visibleinnertext='*' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' tag='DIV' parentid='sac-suggestion-row-1-cell-1' visibleinnertext='*' type='' class='s-suggestion s-suggestion-ellipsis-direction' aaname='' check:text='testosterone' /&gt;" Guid="0c8816b2-c83d-4d16-8752-636fc16659e1" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V5" Visibility="Visible" WaitForReadyArgument="Complete">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="32f8133e-4fa8-41c4-a14c-d0a7a5bf3508" CvTextArea="345, 156, 97, 14" CvTextArgument="testosterone" CvType="Text" DesignTimeRectangle="346, 153, 95, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='s-heavy' tag='SPAN' type='' aaname='testosterone' check:innerText='testosterone' /&gt;" Guid="7831e78a-9ed5-44d6-8cb0-3629542147e2" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="15ad6cfd9b2689b417daaffe9a7d69e6.png" xmlns="">05JO7xzEMTkqlZ1Gmudxk2Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

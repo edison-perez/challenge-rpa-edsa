@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Amazon.com  XFX Speedster SWFT 210 Rad",
+  "Type": "Screen",
+  "Id": "tZz3dw9bwUW95Sg2MKow5A",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/tZz3dw9bwUW95Sg2MKow5A",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/p3bqmSvZIkKdiycaRyf1Iw",
+  "Created": "2025-04-07T15:45:47.8718519Z",
+  "Updated": "2025-04-07T15:45:47.8718519Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

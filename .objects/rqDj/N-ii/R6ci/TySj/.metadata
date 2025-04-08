@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Precio",
+  "Type": "Element",
+  "Id": "TySjuMcmaUapR6NJ87hmIQ",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/TySjuMcmaUapR6NJ87hmIQ",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-03T19:10:09.945927Z",
+  "Updated": "2025-04-03T19:10:09.945927Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

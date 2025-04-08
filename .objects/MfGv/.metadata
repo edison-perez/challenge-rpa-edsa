@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Amazon.com en espanol. Gasta menos. So",
+  "Type": "App",
+  "Id": "MfGvJhGZ3kKEEMyYf8dzNA",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/MfGvJhGZ3kKEEMyYf8dzNA",
+  "Created": "2025-04-02T23:41:59.0226956Z",
+  "Updated": "2025-04-02T23:41:59.0226956Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

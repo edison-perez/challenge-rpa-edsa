@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="1QfFUe6Vskybrwo0zrYTqg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1_sspa" CVScreenId="69f1a065-32f1-4bd6-a752-7faa71009b65" DesignTimeRectangle="1552, 467, 55, 18" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' type='' aaname=' Detalles ' check:innerText='Detalles' /&gt;" Guid="5654460b-14bf-465b-a882-993f861f0873" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: KSIPZE Tira de luces LED RGB de 100 pies, sincronización de música, cambio de color, luces LED Bluetooth con control de aplicación inteligente, luces LED remotas para dormitorio, iluminación de : Herramientas y Mejoras del Hogar' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e4a0bc47f10be16c5a80eff98ead5cbf.png" xmlns="">0lzaqqNlOGUeefb385kxHBA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "No puede enviarse este …",
+  "Type": "Element",
+  "Id": "r4WRRoOqTE6GFS1JcqR_mg",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/r4WRRoOqTE6GFS1JcqR_mg",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/GPlDpFOcQESJQJRA7TnpNw",
+  "Created": "2025-04-07T15:17:28.6604566Z",
+  "Updated": "2025-04-07T15:17:28.6604566Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

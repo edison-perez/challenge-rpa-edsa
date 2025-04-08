@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="603aPGX6KUSulYbXdfIPzg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/s" DesignTimeRectangle="377, 616, 273, 96" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div' tag='DIV' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Anuncio Patrocinado - Paquete de 2 juguetes para gatos de peces flotantes, juguetes eléctricos de peces móviles para gatos de interior, simulación de felpa realista, juguete de gato que se mueve, juguete de gato con hierba' tag='H2' type='' class='a-size-base-plus a-spacing-none a-color-base a-text-normal' aaname='' check:innerText='Paquete de 2 juguetes para gatos de peces flotantes, juguetes eléctricos de peces móviles para' /&gt;" Guid="6376585e-7d56-47e3-967a-beee9a4e7b3c" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c775b299240e1542d9d2248366720725.png" xmlns="">0JQN6B7zHKk6mA3w2u5ugeQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

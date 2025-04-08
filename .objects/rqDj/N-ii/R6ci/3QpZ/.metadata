@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Click-radio-ES",
+  "Type": "Element",
+  "Id": "3QpZD2X31kycB5TJNHOwxw",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/3QpZD2X31kycB5TJNHOwxw",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-02T23:57:23.843247Z",
+  "Updated": "2025-04-02T23:57:23.843247Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

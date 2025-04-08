@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="dQvhzID-jk-eVOCQjy645A" Reference="DFMpLOzGakiwtKuOkouixA/g6nOyjRXjUiQt1SHKUnbmw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/s" DesignTimeRectangle="364, 308, 1497, 228" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl aria-role='listitem' tag='DIV' parentclass='s-main-slot s-result-list s-search-results sg-row' type='' class='sg-col-20-of-24 s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16' aaname='' check:text='ASRock Tarjeta gráfica Chanllenger AMD RX 6600 8G GDDR6 y fuente de alimentación bronce 80+ 550W Ver opcionesNo hay ofertas destacadas disponiblesUS$244.99(1 oferta nueva)' /&gt;" Guid="db7e6974-269e-4c40-a276-850ad1d6c6b9" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete">
+      <imageRef attrName="InformativeScreenshot" originalValue="c10bb12bade80405a5d7c173267929f5.png" xmlns="">0AKA1k6Y-PUKw1TVM48ikAw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

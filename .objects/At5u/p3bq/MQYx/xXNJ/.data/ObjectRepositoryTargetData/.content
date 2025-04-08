@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="sCe6qBJIYk20tVvWL0C96w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com" CVScreenId="85ee7052-43f3-4dc0-89de-69781e5f62a6" CvTextArea="1524, 123, 17, 13" CvTextArgument="ES" CvType="Text" DesignTimeRectangle="1498, 101, 43, 45" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl parentid='icp-nav-flyout' tag='SPAN' type='' class='icp-nav-link-inner' aaname='                   ' check:innerText='ES' /&gt;" Guid="b784c68e-af5e-4fa0-806a-ce4a7b2631ce" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="7ff87ca1e5cb165ba116f774728f92a6.png" xmlns="">071Q9pw10mkmFr3sXbCF2IA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

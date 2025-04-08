@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="FIyBf1UzXEeZ8ogZEFuXRw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com" CVScreenId="56505fd2-cbef-4e54-9580-2d7603375739" CvElementArea="1501, 294, 21, 21" CvType="RadioButton" DesignTimeRectangle="1503, 296, 18, 18" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='icp-radio' idx='3' parentid='nav-flyout-icp' tag='I' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl class='icp-radio' type='' parentid='nav-flyout-icp' tag='I' aaname='' /&gt;" Guid="ca8ee66e-7e3c-473e-b9ed-9b3991e4037d" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="b8d0d25379b9dac42ed5686faf318ea3.png" xmlns="">0pkTQjyGYS0ydmPiIOl1sGQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetAttributeGeneric</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

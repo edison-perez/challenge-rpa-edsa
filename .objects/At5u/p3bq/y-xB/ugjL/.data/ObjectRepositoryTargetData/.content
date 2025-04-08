@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="RSy3hkIYhkqbQ1tjSzvpSQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/desechables-invitados-pulgadas-servilletas-absorbente/dp/B0863K332L/ref=sr_1_2_sspa" DesignTimeRectangle="8, 95, 0, 0" DesignTimeScaleFactor="1" ElementType="List" FullSelectorArgument="&lt;webctrl aria-role='list' id='histogramTable' tag='UL' /&gt;" FuzzyMatches="10000" Guid="62ef246b-009d-4bf2-a152-6380622b2863" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Paquete de 200 toallas desechables Lintext para invitados, 12 x 17 pulgadas, hechas en Estados Unidos, servilletas de papel suave y absorbente para baño, cocina o evento : Salud y Hogar' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

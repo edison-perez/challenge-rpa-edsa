@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="UJw0rZEtyEa8wEgJhqshJA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/mugroxa-Conejito-Interactive-conmoviendo-sacudiendo/dp/B0CXBDG37Y/ref=sr_1_1_sspa" CVScreenId="89db7404-f4f7-43b8-bcf5-0d0e73ee7bbb" CvElementArea="312, 103, 1117, 42" CvType="InputBox" DesignTimeRectangle="323, 106, 1099, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' type='text' class='nav-input nav-progressive-attribute' placeholder='Buscar en Amazon' aaname='Buscar en Amazon' /&gt;" Guid="52fc8431-c062-48d6-a5f4-479727b19067" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: mugroxa Conejito – My Realistic Bunny Toy Interactive Bunny Realistic Bunny – Saltando, conmoviendo y sacudiendo las orejas, conejito realista conejito, conejito realista, conejito realista : Juguetes y Juegos' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="89db7404-f4f7-43b8-bcf5-0d0e73ee7bbb" CvTextArea="169, 110, 45, 12" CvTextArgument="Enviar a" CvType="Text" DesignTimeRectangle="170, 110, 56, 14" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='glow-ingress-line1' tag='SPAN' type='' class='nav-line-1 nav-progressive-content' aaname='                    Enviar a                 ' check:innerText='Enviar a' /&gt;" Guid="2e574a55-0272-4046-b19f-eea40c29bdf5" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="e62f885d2150f1fd71f47c3f47b95e2f.png" xmlns="">06C3xTTmkTEOFuZiPPBRJew</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Hover</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

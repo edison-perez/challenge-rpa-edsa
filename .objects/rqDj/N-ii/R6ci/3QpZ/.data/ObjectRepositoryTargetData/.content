@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Po7aHJ9_Qkev1BPoQpXzIQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/customer-preferences/edit" CVScreenId="004e08f1-4e66-4416-ad66-2938719d7058" CvElementArea="170, 387, 21, 21" CvType="RadioButton" DesignTimeRectangle="172, 389, 17, 17" DesignTimeScaleFactor="1" Guid="ff921c4e-1b52-43f8-b9da-42d19b829432" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="57e435bf6c527631b3365565d3679c0e.png" xmlns="">0P7IbQNFzZ0uBe8Y7LmXbQg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

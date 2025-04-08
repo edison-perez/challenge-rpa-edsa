@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="ltJFZermKkOX9S0LiL8iaQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://www.amazon.com/desechables-invitados-pulgadas-servilletas-absorbente/dp/B0863K332L/ref=sr_1_2_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&amp;crid=R3MADK2ER8QX&amp;dib=eyJ2IjoiMSJ9.P-gFVWXKtY12QZ3izzllbGu8epgTOu2wy1RSoHvXb2FeDeWvjjsXZGlejPpB8iAd5V1PwXydzVK89GB_7TehV0ngUOuzwB_UskRvqU_dXxS9W17EJRwBObF29TzoDyGugXOWapGuSAGZfYgKMXwiCXmIY6OQRQhiZzuzKZ3u-HKV8InphHy3X2k8P7VBvlTSSHv_TomA5VQZOv-QI9uEpZMVbwh8mPGvIR2MhQpygEZY9DortAXLY4zUW22d5yVEqeUes08kSwEmz5nzl9Cbt_w2ISBN2HXKwSrgUMnd14s.AlhjYx2ncG4mtf06mSb1QbE7_wEPPyTcRtBKM62tuGU&amp;dib_tag=se&amp;keywords=Utopia%2BTowels%2B6%2BPack%2BPremium%2BHand%2BTowels%2BSet&amp;qid=1743886239&amp;sprefix=utopia%2Btowels%2B6%2Bpack%2Bpre%2Caps%2C760&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1" DesignTimeRectangle="823, 594, 300, 176" DesignTimeScaleFactor="1" ElementType="List" FullSelectorArgument="&lt;webctrl aria-role='list' id='histogramTable' tag='UL' /&gt;" Guid="aebec435-e94c-49a1-a58e-432d40dc891f" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Paquete de 200 toallas desechables Lintext para invitados, 12 x 17 pulgadas, hechas en Estados Unidos, servilletas de papel suave y absorbente para baño, cocina o evento : Salud y Hogar' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="21aeb78042121f0d2e16cf4a4e60e1a3.png" xmlns="">0b0wSW2dpW0WRBbD8WMVZnQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">ExtractData</x:String>
+    <p:InArgument x:TypeArguments="x:String" x:Key="ExtractDataSettings" xml:space="preserve">&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;
+	&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='New column 0'&gt;
+		&lt;IsValidName&gt;true&lt;/IsValidName&gt;
+		&lt;ValidationErrorMessage /&gt;
+		&lt;IsExtra&gt;false&lt;/IsExtra&gt;
+		&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;
+		&lt;Format xsi:type='TextColumnFormat' /&gt;
+	&lt;/Column&gt;
+&lt;/Table&gt;</p:InArgument>
+    <x:Null x:Key="NextLinkTarget" />
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

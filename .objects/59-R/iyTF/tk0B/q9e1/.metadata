@@ -1,0 +1,14 @@
+﻿{
+  "Name": "testosterone(2)",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "q9e1iwBYK0-sMM7DkTXNPg",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/q9e1iwBYK0-sMM7DkTXNPg",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/tk0BP5x6UE6UvXWEULRQLg",
+  "Created": "2025-04-02T18:52:07.5977521Z",
+  "Updated": "2025-04-02T18:52:07.5977521Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

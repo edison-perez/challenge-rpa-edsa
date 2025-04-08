@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Enviar a Chile",
+  "Type": "Element",
+  "Id": "h4Hl53V0F0iqFF76UShJwg",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/h4Hl53V0F0iqFF76UShJwg",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-03T17:22:51.5081672Z",
+  "Updated": "2025-04-03T17:22:51.5081672Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

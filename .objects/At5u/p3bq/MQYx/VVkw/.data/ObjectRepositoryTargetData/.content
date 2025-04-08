@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="-v_LDcd4q0i_BJ3UBJvzrQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com" CVScreenId="d4a88e39-a454-469f-b517-91aff16ee045" CvElementArea="1527, 288, 22, 22" CvType="RadioButton" DesignTimeRectangle="1527, 288, 22, 22" DesignTimeScaleFactor="1" ElementType="RadioButton" Guid="8fa96b0b-559d-49a6-b304-66c5a118839b" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com. Spend less. Smile more.' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="924c1e4b90355e85e500371b666f294c.png" xmlns="">0BhvIeixOnkiRnZZJghmDIw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Highlight</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

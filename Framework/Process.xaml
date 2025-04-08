@@ -1,7 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_dataRow" Type="InOutArgument(sd:DataRow)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -9,7 +10,7 @@
   <sap:VirtualizedContainerService.HintSize>818.4,454.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="50">
+    <scg:List x:TypeArguments="x:String" Capacity="100">
       <x:String>Microsoft.VisualBasic</x:String>
       <x:String>Microsoft.VisualBasic.Activities</x:String>
       <x:String>System</x:String>
@@ -37,10 +38,47 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Activities.System.Text</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Semantic.Activities</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Excel.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Sharepoint</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -78,16 +116,798 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="375.2,389.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1666,7802" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strAttribute" />
+      <Variable x:TypeArguments="x:String" Name="strText" />
+      <Variable x:TypeArguments="x:String" Name="strUrl" />
+      <Variable x:TypeArguments="x:String" Name="strObservacionEnvio" />
+      <Variable x:TypeArguments="x:String" Name="strCostoProducto" />
+      <Variable x:TypeArguments="x:String" Name="strCostoEnvio" />
+      <Variable x:TypeArguments="x:String" Name="strFechaLlegada" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matchesFechas" />
+      <Variable x:TypeArguments="x:String" Default="\b(?&lt;dia&gt;\d{1,2})\s+de\s+(?&lt;mes&gt;enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b" Name="strPatronRegex" />
+      <Variable x:TypeArguments="s:DateTime" Name="dtmFechaEntrega" />
+      <Variable x:TypeArguments="s:String[]" Default="[{&quot;d 'de' MMMM yyyy&quot;, &quot;dd 'de' MMMM yyyy&quot;}]" Name="formatos" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="x:String" Name="strValoracion" />
+      <Variable x:TypeArguments="x:String" Name="strComentario" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="findChildren" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="333.6,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1666,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome-amazon" HealingAgentBehavior="RecommendationOnly" sap:VirtualizedContainerService.HintSize="1666,7455" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsIncognito="False" OpenMode="IfNotOpen" ScopeGuid="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1632,7206" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" sap:VirtualizedContainerService.HintSize="1598,119" sap2010:WorkflowViewState.IdRef="Activate_1">
+              <ui:Activate.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52e5757f-bece-40e1-99cd-95525fe55f48">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Activate.Target>
+            </ui:Activate>
+            <uix:NHover DisplayName="Hover-idioma" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,225" sap2010:WorkflowViewState.IdRef="NHover_1" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NHover.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="0bbddd97-dadd-4466-98db-2f1c39e3ec97" DesignTimeRectangle="1524, 153, 46, 45" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl parentid='icp-nav-flyout' tag='SPAN' /&gt;" Guid="880f30f3-c072-4c10-b17c-70e60c027f03" InformativeScreenshot="730b88b93db32f143d190c73a5aab701.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
+              </uix:NHover.Target>
+              <uix:NHover.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NHover.VerifyOptions>
+            </uix:NHover>
+            <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="class" DisplayName="Get Attribute-idioma-ES-seleccionado" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[strAttribute]" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="6743a89e-13d6-489f-afd3-0914aca8d8a5" CvElementArea="1502, 236, 21, 21" CvType="RadioButton" DesignTimeRectangle="8, 95, 0, 0" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl tag='SPAN' innertext='*- ES' idx='1' /&gt;&lt;webctrl parentid='nav-flyout-icp' tag='I' /&gt;" FuzzyMatches="10000" Guid="661c3308-5068-4729-a20e-2cd77cec6780" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive" />
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <uix:NGetText DisplayName="Get Text-modena" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,189" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" TextString="[strText]" Version="V4">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Pokemon-Trainer-Guess-Legacys-Will/dp/B0947GLNDG/ref=sr_1_21_sspa" CVScreenId="8cab7e3a-7f10-49c4-85bd-8befc265a29e" CvTextArea="1501, 506, 110, 13" CvType="AnyWordGroup" DesignTimeRectangle="1503, 505, 108, 17" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;&lt;webctrl class='icp-flyout-change' parentid='nav-flyout-icp' tag='A' href='/customer-preferences/edit?ref_=icp_cop_flyout_change*' /&gt;&lt;nav up='1' /&gt;&lt;webctrl parentid='nav-flyout-icp' tag='SPAN' visibleinnertext='* - *' /&gt;" Guid="7b6614a3-a3fe-4203-9662-b017acc61085" InformativeScreenshot="801d9c96bedf998b2a30e3ff63d5fae6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="8cab7e3a-7f10-49c4-85bd-8befc265a29e" DesignTimeRectangle="8, 95, 0, 0" ElementType="Text" FullSelectorArgument="&lt;webctrl class='icp-flyout-change' parentid='nav-flyout-icp' tag='A' href='/customer-preferences/edit?ref_=icp_cop_flyout_change*' /&gt;&lt;nav up='1' /&gt;&lt;webctrl parentid='nav-flyout-icp' tag='SPAN' visibleinnertext='* - *' /&gt;" Guid="e5748b05-52b9-4cf5-9570-cbe3c8bc5377" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <If Condition="[strAttribute.ToLower =&quot;icp-radio icp-radio-active&quot; and strText.ToLower = &quot;clp - peso chileno&quot;]" DisplayName="If-radio-ES-seleccionado" sap:VirtualizedContainerService.HintSize="1058,1142" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,915" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-Cambiar" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,225" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="5f1f67dd-4e4a-4c89-8b67-9290c963e951" DesignTimeRectangle="8, 147, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='icp-flyout-change' parentid='nav-flyout-icp' tag='A' /&gt;" Guid="1323215c-20ba-4390-8cdb-67d57f6f72a1" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-radio-ES" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,225" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com/customer-preferences/edit" CVScreenId="b123c066-05e7-4fa7-9a70-ae3cc5a88beb" DesignTimeRectangle="172, 337, 17, 17" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl parentid='icp-language-settings' tag='LABEL' visibleinnertext='*- ES -*' /&gt;&lt;webctrl parentid='icp-language-settings' tag='I' /&gt;" Guid="d372076f-d782-4661-bcc3-6004fd41f616" InformativeScreenshot="4fb0383913a23c9b3fabf6a4d3791723.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NSelectItem DisplayName="Select Item-CLP" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,189" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="CLP -*" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="50">
+                        <x:String>Seleccionar moneda</x:String>
+                        <x:String>$ - USD - dólar estadounidense (Predeterminado)</x:String>
+                        <x:String>CLP - peso chileno</x:String>
+                        <x:String>COP - peso colombiano</x:String>
+                        <x:String>HKD - dólar hongkonés</x:String>
+                        <x:String>IDR - rupia indonesia</x:String>
+                        <x:String>ILS - nuevo séquel israelí</x:String>
+                        <x:String>KRW - won surcoreano</x:String>
+                        <x:String>MYR - ringit</x:String>
+                        <x:String>NZD - dólar neozelandés</x:String>
+                        <x:String>THB - bat</x:String>
+                        <x:String>TWD - nuevo dólar taiwanés</x:String>
+                        <x:String>CRC - colón costarricense</x:String>
+                        <x:String>PEN - sol peruano</x:String>
+                        <x:String>UYU - peso uruguayo</x:String>
+                        <x:String>BRL - real brasileño</x:String>
+                        <x:String>AUD - dólar australiano</x:String>
+                        <x:String>CAD - dólar canadiense</x:String>
+                        <x:String>CNY - yuan</x:String>
+                        <x:String>EUR - euro</x:String>
+                        <x:String>¥ - JPY - yen</x:String>
+                        <x:String>MXN - peso mexicano</x:String>
+                        <x:String>GBP - libra esterlina</x:String>
+                        <x:String>AED - dírham de los Emiratos Árabes Unidos</x:String>
+                        <x:String>SGD - dólar singapurense</x:String>
+                        <x:String>SAR - rial saudí</x:String>
+                        <x:String>NOK - corona noruega</x:String>
+                        <x:String>ARS - peso argentino</x:String>
+                        <x:String>AMD - dram</x:String>
+                        <x:String>AWG - florín arubeño</x:String>
+                        <x:String>AZN - manat azerbaiyano</x:String>
+                        <x:String>BSD - dólar bahameño</x:String>
+                        <x:String>BZD - dólar beliceño</x:String>
+                        <x:String>BOB - boliviano</x:String>
+                        <x:String>BND - dólar bruneano</x:String>
+                        <x:String>BGN - leva búlgara</x:String>
+                        <x:String>KHR - riel</x:String>
+                        <x:String>KYD - dólar de las Islas Caimán</x:String>
+                        <x:String>DOP - peso dominicano</x:String>
+                        <x:String>XCD - dólar del Caribe Oriental</x:String>
+                        <x:String>EGP - libra egipcia</x:String>
+                        <x:String>GHS - cedi</x:String>
+                        <x:String>GTQ - quetzal guatemalteco</x:String>
+                        <x:String>HUF - forinto húngaro</x:String>
+                        <x:String>INR - rupia india</x:String>
+                        <x:String>JMD - dólar jamaicano</x:String>
+                        <x:String>KZT - tenge kazajo</x:String>
+                        <x:String>KES - chelín keniano</x:String>
+                        <x:String>LBP - libra libanesa</x:String>
+                        <x:String>HNL - lempira hondureño</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com/customer-preferences/edit" CVScreenId="09660d6b-7669-484d-ab47-5588947ee254" DesignTimeRectangle="170, 539, 378, 29" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl parentid='icp-currency-dropdown-selected-item-prompt' tag='SPAN' /&gt;" Guid="2ea9aebf-7be7-495b-9620-0bc1b1faf24e" ImageBase64="" InformativeScreenshot="754b4dccfe6fb8718eb2ce19a4db1684.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'INPUT'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,216" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com/customer-preferences/edit" CVScreenId="d6ee9249-0ae5-490b-b953-47a702591d0c" DesignTimeRectangle="252, 708, 121, 29" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-labelledby='icp-save-button-announce' tag='INPUT' type='submit' /&gt;" Guid="3551f0f3-54c8-4494-a860-4ec5c0558e67" InformativeScreenshot="9c89d591cbd17ef0c44820af5f554452.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NHover DisplayName="Hover-Buscar" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,225" sap2010:WorkflowViewState.IdRef="NHover_2" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NHover.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/mugroxa-Conejito-Interactive-conmoviendo-sacudiendo/dp/B0CXBDG37Y/ref=sr_1_1_sspa" CVScreenId="89db7404-f4f7-43b8-bcf5-0d0e73ee7bbb" CvElementArea="312, 103, 1117, 42" CvType="InputBox" DesignTimeRectangle="323, 106, 1099, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' type='text' class='nav-input nav-progressive-attribute' placeholder='Buscar en Amazon' aaname='Buscar en Amazon' /&gt;" Guid="52fc8431-c062-48d6-a5f4-479727b19067" InformativeScreenshot="e62f885d2150f1fd71f47c3f47b95e2f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: mugroxa Conejito – My Realistic Bunny Toy Interactive Bunny Realistic Bunny – Saltando, conmoviendo y sacudiendo las orejas, conejito realista conejito, conejito realista, conejito realista : Juguetes y Juegos' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="89db7404-f4f7-43b8-bcf5-0d0e73ee7bbb" CvTextArea="169, 110, 45, 12" CvTextArgument="Enviar a" CvType="Text" DesignTimeRectangle="170, 110, 56, 14" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='glow-ingress-line1' tag='SPAN' type='' class='nav-line-1 nav-progressive-content' aaname='                    Enviar a                 ' check:innerText='Enviar a' /&gt;" Guid="2e574a55-0272-4046-b19f-eea40c29bdf5" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NHover.Target>
+              <uix:NHover.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NHover.VerifyOptions>
+            </uix:NHover>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into-BuscarProducto" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Text="[in_TransactionItem.SpecificContent(&quot;nombre_producto&quot;).ToString]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="836ee2cc-8260-4c85-96c7-3e00b8858d68" CvElementArea="297, 154, 1130, 44" CvType="InputBox" DesignTimeRectangle="310, 158, 1112, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' type='text' class='nav-input nav-progressive-attribute' placeholder='Buscar en Amazon' aaname='Buscar en Amazon' /&gt;" Guid="936368bf-48a3-431f-808b-b37154a8d88d" InformativeScreenshot="d6fd296c6a6832cac44d3a62eb9a3d4c.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="836ee2cc-8260-4c85-96c7-3e00b8858d68" CvElementArea="243, 156, 67, 42" CvType="InputBox" DesignTimeRectangle="256, 161, 32, 33" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='nav-search-label-id' tag='SPAN' type='' class='nav-search-label nav-progressive-content' aaname='Todos' check:innerText='Todos' /&gt;" Guid="174ced33-8f24-483c-9308-d68e3e84d687" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="4" DisplayName="Click-Buscar" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,225" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="654392de-7bca-4c3c-adfc-e7a7dbc0367c" CvElementArea="1419, 102, 50, 44" CvType="Button" DesignTimeRectangle="1422, 105, 45, 40" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' type='submit' class='nav-input nav-progressive-attribute' aaname='Ir' check:text='Ir' /&gt;" Guid="fc6896a1-ca03-4bfc-8477-e351bf4755af" InformativeScreenshot="12c20a08a5b068267e5759b41a34a8f1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:FindChildren Children="[findChildren]" DisplayName="Find Children-ListProductos" Filter="&lt;webctrl  tag='H2' parentclass='a-link-*'/&gt;" sap:VirtualizedContainerService.HintSize="1058,139" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+              <ui:FindChildren.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="144f35c0-2b0a-48df-8972-84b8f0c1168d" InformativeScreenshot="30ce6706a24e8b894e32a06a86947c42" Selector="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div' parentid='search' tag='DIV' class='s-main-slot s-result-list s-search-results sg-row' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:FindChildren.Target>
+            </ui:FindChildren>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,205" sap2010:WorkflowViewState.IdRef="NClick_15" InUiElement="[findChildren.ElementAt(0)]" KeyModifiers="None" MouseButton="Left" Version="V4">
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:CommentOut DisplayName="ModosSeleccionProductos" sap:VirtualizedContainerService.HintSize="1058,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Pick DisplayName="Pick-FormatoProductos" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="Pick_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <PickBranch DisplayName="PickBranch-ListaProductos" sap:VirtualizedContainerService.HintSize="424,479" sap2010:WorkflowViewState.IdRef="PickBranch_1">
+                      <PickBranch.Trigger>
+                        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element-ListaProductos" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                          <ui:WaitUiElementAppear.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c811cefd-37ca-422f-ac7e-766d3fab0a51" Selector="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;&lt;webctrl class='puisg-row' tag='DIV' /&gt;&lt;webctrl aaname='*' tag='SPAN' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;a&amp;gt;h2&amp;gt;span' /&gt;" WaitForReady="INTERACTIVE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:WaitUiElementAppear.Target>
+                        </ui:WaitUiElementAppear>
+                      </PickBranch.Trigger>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-ProdutoLista" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="334,193" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="amazon.com/s" DesignTimeRectangle="672, 343, 248, 22" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='puisg-row' tag='DIV' /&gt;&lt;webctrl aaname='*' tag='SPAN' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;a&amp;gt;h2&amp;gt;span' /&gt;" Guid="db7e6974-269e-4c40-a276-850ad1d6c6b9" InformativeScreenshot="a725075669a29e914321fd8e67ceed64.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                    </PickBranch>
+                    <PickBranch DisplayName="PickBranch-CartaProductos" sap:VirtualizedContainerService.HintSize="424,479" sap2010:WorkflowViewState.IdRef="PickBranch_2">
+                      <PickBranch.Trigger>
+                        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element-CartaProductos" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+                          <ui:WaitUiElementAppear.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c811cefd-37ca-422f-ac7e-766d3fab0a51" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div' tag='DIV' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='H2' /&gt;" WaitForReady="INTERACTIVE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:WaitUiElementAppear.Target>
+                        </ui:WaitUiElementAppear>
+                      </PickBranch.Trigger>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-ProductoCarta" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="334,193" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="amazon.com/s" DesignTimeRectangle="377, 616, 273, 96" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div' tag='DIV' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='H2' /&gt;" Guid="6376585e-7d56-47e3-967a-beee9a4e7b3c" InformativeScreenshot="c775b299240e1542d9d2248366720725.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                            <uix:TargetAnchorable.FuzzySelectorArgument>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </uix:TargetAnchorable.FuzzySelectorArgument>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                    </PickBranch>
+                  </Pick>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NGetUrl CurrentUrl="[strUrl]" DisplayName="Get URL-Producto" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,119" sap2010:WorkflowViewState.IdRef="NGetUrl_1" Version="V4" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click-PrecioProductoSinOferta" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,225" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Timeout="2" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Tocirelo-Juguetes-interactivo-interior-el%C3%A9ctrico/dp/B086QRHNRG/ref=sr_1_1_sspa" CVScreenId="4e4f6564-f6d7-4fb2-9881-a7715d254075" DesignTimeRectangle="1657, 697, 17, 17" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl parentid='newAccordionCaption_feature_div' tag='SPAN' aaname=' Precio sin oferta ' /&gt;&lt;nav up='4' /&gt;&lt;webctrl parentid='newAccordionRow_1' tag='I' /&gt;" Guid="9ff2ba99-b601-413b-b2ea-776b1f7abc6a" InformativeScreenshot="241bbd05f2d5f8de481a737cd08e6c6b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-Enviar" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,225" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Adaptador-universal-adaptador-internacional-alimentaci%C3%B3n/dp/B077XRXRZR/ref=sr_1_1_sspa" CVScreenId="1b85bc68-b8b1-4f43-bc90-e25ed90e61e4" CvTextArea="1488, 611, 74, 12" CvType="Text" DesignTimeRectangle="1489, 609, 73, 18" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl id='contextualIngressPtLabel_deliveryShortLine' tag='DIV' type='' class='' aaname='' /&gt;" Guid="ad76622b-3543-420a-9a17-dbcba60ca9e0" InformativeScreenshot="9763d77d6d5e1dc59d1e65582800bff4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Unidapt Adaptador de viaje universal, adaptador de enchufe internacional rápido 2,4A 4-USB enchufe de alimentación europeo, cargador de pared de CA - Toma mundial para Europa EE. UU. Reino Unido UE : Celulares y Accesorios' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item-SeleccionPais" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,189" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[in_TransactionItem.SpecificContent(&quot;zona_envio&quot;).ToString]" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Australia</x:String>
+                  <x:String>Canadá</x:String>
+                  <x:String>China</x:String>
+                  <x:String>Japón</x:String>
+                  <x:String>México</x:String>
+                  <x:String>Reino Unido</x:String>
+                  <x:String>Singapur</x:String>
+                  <x:String>Afganistán</x:String>
+                  <x:String>Albania</x:String>
+                  <x:String>Alemania</x:String>
+                  <x:String>Andorra</x:String>
+                  <x:String>Angola</x:String>
+                  <x:String>Anguilla</x:String>
+                  <x:String>Antigua y Barbuda</x:String>
+                  <x:String>Antillas Neerlandesas</x:String>
+                  <x:String>Arabia Saudita</x:String>
+                  <x:String>Argelia</x:String>
+                  <x:String>Argentina</x:String>
+                  <x:String>Armenia</x:String>
+                  <x:String>Aruba</x:String>
+                  <x:String>Australia</x:String>
+                  <x:String>Austria</x:String>
+                  <x:String>Azerbaiyán</x:String>
+                  <x:String>Bahamas</x:String>
+                  <x:String>Bahréin</x:String>
+                  <x:String>Bangladesh</x:String>
+                  <x:String>Barbados</x:String>
+                  <x:String>Belarús, República de</x:String>
+                  <x:String>Belice</x:String>
+                  <x:String>Benín</x:String>
+                  <x:String>Bermudas</x:String>
+                  <x:String>Bélgica</x:String>
+                  <x:String>Bolivia</x:String>
+                  <x:String>Bonaire, San Eustaquio y Saba</x:String>
+                  <x:String>Bosnia y Herzegovina</x:String>
+                  <x:String>Botsuana</x:String>
+                  <x:String>Brasil</x:String>
+                  <x:String>Brunei Darussalam</x:String>
+                  <x:String>Bulgaria</x:String>
+                  <x:String>Burkina Faso</x:String>
+                  <x:String>Burundi</x:String>
+                  <x:String>Bután</x:String>
+                  <x:String>Cabo Verde</x:String>
+                  <x:String>Camboya</x:String>
+                  <x:String>Camerún</x:String>
+                  <x:String>Canadá</x:String>
+                  <x:String>Chad</x:String>
+                  <x:String>Chile</x:String>
+                  <x:String>China</x:String>
+                  <x:String>Chipre</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Adaptador-universal-adaptador-internacional-alimentaci%C3%B3n/dp/B077XRXRZR/ref=sr_1_1_sspa" CVScreenId="ff4765b2-e42f-48ea-8f9a-9a9d6ff4ed3f" DesignTimeRectangle="807, 648, 323, 29" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl parentid='GLUXCountryListDropdown' tag='SPAN' type='' class='a-button-inner' aaname='' /&gt;" Guid="ba8d4d5a-eb45-4dd8-a4fa-f0525ef6152f" ImageBase64="" InformativeScreenshot="20f1f9b5f89b9988bf4ac70a80fdc201.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Unidapt Adaptador de viaje universal, adaptador de enchufe internacional rápido 2,4A 4-USB enchufe de alimentación europeo, cargador de pared de CA - Toma mundial para Europa EE. UU. Reino Unido UE : Celulares y Accesorios' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-Listo" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1598,225" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Adaptador-universal-adaptador-internacional-alimentaci%C3%B3n/dp/B077XRXRZR/ref=sr_1_1_sspa" CVScreenId="ff4765b2-e42f-48ea-8f9a-9a9d6ff4ed3f" DesignTimeRectangle="1080, 703, 50, 29" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl name='glowDoneButton' tag='BUTTON' type='button' class='a-button-text' aaname='Listo' check:innerText='Listo' /&gt;" Guid="d8001eb4-7fc7-47fb-9067-a53a32b2c79b" InformativeScreenshot="57bfffe348de6fc73b1de428d7e3bcb1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Unidapt Adaptador de viaje universal, adaptador de enchufe internacional rápido 2,4A 4-USB enchufe de alimentación europeo, cargador de pared de CA - Toma mundial para Europa EE. UU. Reino Unido UE : Celulares y Accesorios' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <Pick sap:VirtualizedContainerService.HintSize="1598,781" sap2010:WorkflowViewState.IdRef="Pick_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <PickBranch DisplayName="PickBranch-Detalles" sap:VirtualizedContainerService.HintSize="424,702" sap2010:WorkflowViewState.IdRef="PickBranch_3">
+                <PickBranch.Trigger>
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1d74f89d-39c7-4e75-ba47-b0db18a6d5dd" Selector="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' aaname=' Detalles ' innertext=' Detalles ' idx='1' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </PickBranch.Trigger>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-Detalles" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="334,193" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="amazon.com/desbloqueo-dactilares-antiara%C3%B1azos-compatible-protectora/dp/B0C5R3GHJ9/ref=sr_1_1_sspa" CVScreenId="6fb205d0-41cb-45d0-943f-bc094170ee6c" CvTextArea="1551, 405, 53, 14" CvTextArgument="Detalles" CvType="Text" DesignTimeRectangle="1552, 404, 55, 18" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' aaname=' Detalles ' innertext=' Detalles ' idx='1' /&gt;" Guid="31273bdc-e0bc-4f91-adde-4d3b22aebda2" InformativeScreenshot="10cbe19926c640d7a84a3940359b0fa7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                  <uix:NClick.VerifyOptions>
+                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                      <uix:VerifyExecutionOptions.Retry>
+                        <InArgument x:TypeArguments="x:Boolean" />
+                      </uix:VerifyExecutionOptions.Retry>
+                      <uix:VerifyExecutionOptions.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:VerifyExecutionOptions.Timeout>
+                    </uix:VerifyExecutionOptions>
+                  </uix:NClick.VerifyOptions>
+                </uix:NClick>
+              </PickBranch>
+              <PickBranch DisplayName="PickBranch-NoPuedeEnviarse" sap:VirtualizedContainerService.HintSize="540,702" sap2010:WorkflowViewState.IdRef="PickBranch_4">
+                <PickBranch.Trigger>
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element" sap:VirtualizedContainerService.HintSize="450,87" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_4">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6510100b-776a-4f95-8bb8-b17b97449dd4" Selector="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;&#xA;&lt;webctrl parentid='outOfStock' tag='DIV' visibleinnertext='No puede enviarse *' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </PickBranch.Trigger>
+                <Sequence sap:VirtualizedContainerService.HintSize="450,416" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="visibleinnertext" DisplayName="Get Attribute-Comentario" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_3" Result="[strComentario]" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                    <uix:NGetAttributeGeneric.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com/-/es/Cuchillo-carnicero-inoxidable-profesional-restaurantes/dp/B08BX7FMQN/ref=sr_1_1" DesignTimeRectangle="1473, 415, 193, 78" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='outOfStock' tag='SPAN' /&gt;" Guid="f74f482c-a6fe-4168-b235-0a4df50c4f71" InformativeScreenshot="49efd7224d3939965538faaf8e8fa936.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                    </uix:NGetAttributeGeneric.Target>
+                  </uix:NGetAttributeGeneric>
+                  <Throw DisplayName="Throw-NoPuedeEnviarse" Exception="[New BusinessRuleException(strComentario)]" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </PickBranch>
+              <PickBranch DisplayName="PickBranch-NoDisponible" sap:VirtualizedContainerService.HintSize="540,702" sap2010:WorkflowViewState.IdRef="PickBranch_5">
+                <PickBranch.Trigger>
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element" sap:VirtualizedContainerService.HintSize="450,87" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_5">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6510100b-776a-4f95-8bb8-b17b97449dd4" Selector="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;&lt;webctrl parentid='outOfStock' tag='DIV' visibleinnertext='No disponible *' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </PickBranch.Trigger>
+                <Sequence sap:VirtualizedContainerService.HintSize="450,416" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="visibleinnertext" DisplayName="Get Attribute-Comentario" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" Result="[strComentario]" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+                    <uix:NGetAttributeGeneric.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com/-/es/Cuchillo-carnicero-inoxidable-profesional-restaurantes/dp/B08BX7FMQN/ref=sr_1_1" DesignTimeRectangle="1473, 415, 193, 78" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='outOfStock' tag='SPAN' /&gt;" Guid="f74f482c-a6fe-4168-b235-0a4df50c4f71" InformativeScreenshot="49efd7224d3939965538faaf8e8fa936.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                    </uix:NGetAttributeGeneric.Target>
+                  </uix:NGetAttributeGeneric>
+                  <Throw DisplayName="Throw-NoPuedeEnviarse" Exception="[New BusinessRuleException(strComentario)]" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                </Sequence>
+              </PickBranch>
+            </Pick>
+            <uix:NGetText DisplayName="Get Text-Precio" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1598,189" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" TextString="[strCostoProducto]" Version="V4">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1_sspa" CVScreenId="92750545-ffc9-4e1a-bcd3-fe81fd4db580" CvTextArea="1672, 563, 65, 15" CvType="AnyWordGroup" DesignTimeRectangle="1613, 541, 75, 20" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-2' tag='TABLE' /&gt;&lt;webctrl type='' class='a-span2 a-text-right' tag='TD' aaname='  ' /&gt;" Guid="6f585f10-ef29-4014-95fa-3252d45166d1" InformativeScreenshot="2c472e08938f036b1315a98fc3acc099.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: KSIPZE Tira de luces LED RGB de 100 pies, sincronización de música, cambio de color, luces LED Bluetooth con control de aplicación inteligente, luces LED remotas para dormitorio, iluminación de : Herramientas y Mejoras del Hogar' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="92750545-ffc9-4e1a-bcd3-fe81fd4db580" DesignTimeRectangle="1388, 541, 204, 20" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-2' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='a-span9 a-text-left' aaname='  ' check:innerText='Precio' /&gt;" Guid="1fd6560f-6d5a-4cfe-b063-14a0c354b0b8" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <uix:NGetText DisplayName="Get Text-CostoEnvio" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" TextString="[strCostoEnvio]" Version="V4">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Cuchillo-picador-pulgadas-inoxidable-restaurant/dp/B07GNHF45Z/ref=sr_1_2_sspa" CVScreenId="4d23d150-a631-4eb2-9bf4-e0ed57d4a376" CvTextArea="1615, 564, 74, 15" CvType="AnyWordGroup" DesignTimeRectangle="1616, 562, 72, 18" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-2' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-base' /&gt;" Guid="a237b9a0-eb83-4f63-8bb5-7883782241e5" InformativeScreenshot="828da5cc60cd54921056b65446738ecb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Cuchillo picador Imarku, de 7 pulgadas, hecho de acero inoxidable, para cocina de casa o restaurant : Hogar y Cocina' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="4d23d150-a631-4eb2-9bf4-e0ed57d4a376" CvTextArea="1388, 563, 152, 14" CvTextArgument="Envío de AmazonGlobal" CvType="Text" DesignTimeRectangle="1388, 561, 204, 20" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-2' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='a-span9 a-text-left' aaname='  ' check:innerText='Envío de AmazonGlobal' /&gt;" Guid="b8ccf621-365c-48bb-a4e4-9483061abb09" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click-Cerrar" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,225" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Ravaver-bolsillos-tarjetas-intercambiables-colecci%C3%B3n/dp/B0DZ1SBHWT/ref=sr_1_1_sspa" CVScreenId="d1345a8d-19b4-410d-85bb-04203f9eace4" CvElementArea="1717, 509, 37, 36" CvType="CloseButton" DesignTimeRectangle="1724, 515, 24, 24" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='' class='a-button-close  a-declarative' aaname='' /&gt;" Guid="97d3baa3-456e-4994-89c6-c9c3f05aa777" InformativeScreenshot="829759795143e752a801ac5d7a56f592.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Ravaver Carpeta de 9 bolsillos para tarjetas, 540 tarjetas intercambiables, colección de juegos, carpeta de libros con mangas de carga lateral (negro) : Juguetes y Juegos' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Text-FechaEntrega" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,189" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" TextString="[strFechaLlegada]" Version="V4">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/Homemory-el%C3%A9ctricas-aniversarios-funerales-Halloween/dp/B0B31KL5J2/ref=sr_1_1_sspa" DesignTimeRectangle="1468, 486, 206, 100" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl id='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='DIV' type='' class='a-spacing-base' aaname='' /&gt;" Guid="edd3684b-6391-4996-86d4-90781cd8a9a0" InformativeScreenshot="ffb4bfd0986c6927908c93611c5d4a96.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\b(?&lt;dia&gt;\d{1,2})\s+de\s+(?&lt;mes&gt;enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b" DisplayName="Find Matching Patterns-FechaEntrega" sap:VirtualizedContainerService.HintSize="1058,92" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[strFechaLlegada]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\b(?&lt;dia&gt;\\d{1,2})\\s+de\\s+(?&lt;mes&gt;enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\b(?&lt;dia&gt;\d{1,2})\s+de\s+(?&lt;mes&gt;enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b" RegexOption="IgnoreCase, Compiled" Result="[matchesFechas]" />
+            <If Condition="[matchesFechas.Any()]" sap:VirtualizedContainerService.HintSize="1058,784" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="504,557" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:DateTime">[dtmFechaEntrega]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact( matchesFechas.Last().ToString.tolower+now.ToString(" yyyy"), formatos, System.Globalization.CultureInfo.CreateSpecificCulture("es-ES"), Globalization.DateTimeStyles.None)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[dtmFechaEntrega &lt; Now]" sap:VirtualizedContainerService.HintSize="470,383" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:DateTime">[dtmFechaEntrega]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:DateTime">[dtmFechaEntrega.AddYears(1)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,89" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="504,89" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='estrellas'&gt;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&lt;ValidationErrorMessage /&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='valoracion'&gt;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&lt;ValidationErrorMessage /&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;/column&gt;&lt;/extract&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1058,189" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="3e9dfc0c-e175-481d-b76e-0ab6697d59ac" Version="V4">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Adaptador-plegable-ELECTRONICS-cargador-iPhone16/dp/B0CGVSRSQY/ref=sr_1_1_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&amp;crid=33V0S5U4WZJT1&amp;dib=eyJ2IjoiMSJ9.v0T3__LIutovCssxYrdI0Y5gh_2XsFNClWowoPA6lZssMLkBQICA5lgrpSwPMeJ4HCIeEhFNX46jXywkh4ajDl5--xduGggJ8WY84hHKb9-V8IKPzWpILKimF8JvtZIaMjb0S859M2FusAFxeGD4F38p0gFt1virg0Ue5A_EkpVQQh6PzeLbd2UPfyCUygBHrKFLPijhxWMYINySbjHlKGwK8lnA6I5AmM-9alOehS0.njhHiNFXqZtWGjkoCcNTnz5SNPWou2A-h0x-J3Uw1BU&amp;dib_tag=se&amp;keywords=Google+Pixel+7a&amp;qid=1743973371&amp;sprefix=google+pixel+7a%2Caps%2C561&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1#averageCustomerReviewsAnchor" DesignTimeRectangle="221, 608, 280, 176" DesignTimeScaleFactor="1" ElementType="List" FullSelectorArgument="&lt;webctrl id='histogramTable' tag='UL' /&gt;" Guid="bce62b33-f4eb-4f3b-b516-93df1067dfff" InformativeScreenshot="3ed2d8254b24391080afc3aa1c236f03.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <Assign sap:VirtualizedContainerService.HintSize="1058,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[strValoracion]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[String.Join( Environment.NewLine(), ExtractDataTable.AsEnumerable().Select(Function(row) $"[{row("estrellas")}- {row("valoracion")}]")).Replace("estrellas","").Replace("estrella","")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1058,358" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("nombre_producto")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("nombre_producto").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("zona_envio")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[in_TransactionItem.SpecificContent("zona_envio").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("url")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[strUrl]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("fecha_llegada")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[dtmFechaEntrega]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("precio_producto")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[System.Text.RegularExpressions.Regex.Replace(strCostoProducto, "[^0-9]", "")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("precio_delivery")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[System.Text.RegularExpressions.Regex.Replace( strCostoEnvio, "[^0-9]", "")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("precio_total")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[(cint(System.Text.RegularExpressions.Regex.Replace(strCostoProducto, "[^0-9]", ""))+cint(System.Text.RegularExpressions.Regex.Replace(strCostoEnvio, "[^0-9]", ""))).ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_dataRow("tabla_rating")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">[strValoracion]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" ContentHash="QeGQjnsPMUOxySHKEO8pkQ" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="f5184f2452f57438481e7ee28d835f08.jpg" Reference="DFMpLOzGakiwtKuOkouixA/GPlDpFOcQESJQJRA7TnpNw" Selector="&lt;html app='chrome.exe' /&gt;" Url="[in_Config(&quot;url_amazon&quot;).ToString]" Version="V2" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="1126,79" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>

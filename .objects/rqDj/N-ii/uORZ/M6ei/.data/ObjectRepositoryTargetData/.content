@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="YP6mJY60sE-Q6EmUtoIPBQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/Ravaver-bolsillos-tarjetas-intercambiables-colecci%C3%B3n/dp/B0DZ1SBHWT/ref=sr_1_1_sspa" CVScreenId="d1345a8d-19b4-410d-85bb-04203f9eace4" CvElementArea="1717, 509, 37, 36" CvType="CloseButton" DesignTimeRectangle="1724, 515, 24, 24" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='' class='a-button-close  a-declarative' aaname='' /&gt;" Guid="97d3baa3-456e-4994-89c6-c9c3f05aa777" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Ravaver Carpeta de 9 bolsillos para tarjetas, 540 tarjetas intercambiables, colección de juegos, carpeta de libros con mangas de carga lateral (negro) : Juguetes y Juegos' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="829759795143e752a801ac5d7a56f592.png" xmlns="">0X6aBUfSeL02-1ydKj8Ha5A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

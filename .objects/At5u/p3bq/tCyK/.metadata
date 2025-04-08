@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Nueva pestaña(1)",
+  "Type": "Screen",
+  "Id": "tCyKgNDri0S7d7zforN6cQ",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/tCyKgNDri0S7d7zforN6cQ",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/p3bqmSvZIkKdiycaRyf1Iw",
+  "Created": "2025-04-04T17:17:54.1807366Z",
+  "Updated": "2025-04-04T17:17:54.1807366Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

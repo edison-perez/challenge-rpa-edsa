@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Amazon.com Paquete de 200 toallas dese(4)",
+  "Type": "Screen",
+  "Id": "Xwt7xQaD2UaG6oQG5UXVIg",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/Xwt7xQaD2UaG6oQG5UXVIg",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/p3bqmSvZIkKdiycaRyf1Iw",
+  "Created": "2025-04-06T21:38:17.873573Z",
+  "Updated": "2025-04-06T21:38:17.873573Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

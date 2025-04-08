@@ -12,6 +12,8 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dataRow&StateMachine_1",
+        "dtReporte&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -36,9 +38,15 @@
       "Path": "Framework/InitAllApplications.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "vDt1&Sequence_9"
+        "referenceIfPathExists&Sequence_9",
+        "blnIsFileExists&Sequence_9",
+        "strExtractText&Sequence_9",
+        "jsonArray&Sequence_9",
+        "strPattern&Sequence_9",
+        "strReplace&Sequence_9"
       ],
       "ArgumentsSectionElementsOrder": [
+        "dtReporte",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -57,6 +65,129 @@
         "in_ConfigSheets",
         "out_Config"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "findChildren&Sequence_1",
+        "strComentario&Sequence_1",
+        "strValoracion&Sequence_1",
+        "ExtractDataTable&Sequence_1",
+        "formatos&Sequence_1",
+        "dtmFechaEntrega&Sequence_1",
+        "matchesFechas&Sequence_1",
+        "strPatronRegex&Sequence_1",
+        "strFechaLlegada&Sequence_1",
+        "strCostoProducto&Sequence_1",
+        "strCostoEnvio&Sequence_1",
+        "strObservacionEnvio&Sequence_1",
+        "strUrl&Sequence_1",
+        "strText&Sequence_1",
+        "strAttribute&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_dataRow",
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strMailBody&Sequence_17",
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Sequence.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtm&Sequence_1",
+        "str&Sequence_1",
+        "bol&Sequence_1",
+        "ExtractDataTable&Sequence_1",
+        "dict&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strRutaReporte&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_dtReporte"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Sequence1.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "bolEncontrado&Sequence_1",
+        "ExtractDataTable&Sequence_1",
+        "str&Sequence_1",
+        "dtReporte&Sequence_1",
+        "min&Sequence_1",
+        "max&Sequence_1",
+        "dt_consulta1&Sequence_1",
+        "fecha_llegada&Sequence_1",
+        "dt_consulta2&Sequence_1",
+        "dtmFechaLlegada&Sequence_1",
+        "calificacion&Sequence_1",
+        "dt_valoracion&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

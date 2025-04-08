@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Cambiar",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "_MCEHuk6tEyuoVzdI2oUhA",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/_MCEHuk6tEyuoVzdI2oUhA",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-02T23:53:46.5531363Z",
+  "Updated": "2025-04-02T23:53:46.5531363Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

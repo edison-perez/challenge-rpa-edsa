@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="4PMbldcvnUGuNhyKkxLUkA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/American-Soft-Linen-peque%C3%B1as-unidades/dp/B07Z6J5DB1/ref=sr_1_2_sspa" CVScreenId="ef7c90bf-f8e1-4c02-bb98-64243c08a70d" CvTextArea="1551, 405, 53, 14" CvTextArgument="Detalles" CvType="Text" DesignTimeRectangle="1552, 404, 55, 18" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' type='' aaname=' Detalles ' check:innerText='Detalles' /&gt;" Guid="9e40ef93-65e9-408c-8276-ab6bf074fc7a" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: American Soft Linen - Juego de toallas que incluye 2 toallas de baño, 2 toallas de manos y 2 toallas pequeñas, 100% de algodón turco, 6 unidades, color negro : Hogar y Cocina' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e38e11e2a6d6d3b82409b51b4863ca7f.png" xmlns="">0QBShsx0wfUC1upn5GRY27g</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

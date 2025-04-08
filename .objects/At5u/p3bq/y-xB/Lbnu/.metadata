@@ -1,0 +1,14 @@
+﻿{
+  "Name": "UL histogramTable",
+  "Type": "Element",
+  "TaxonomyType": "Listbox",
+  "Id": "Lbnu8jpUi0ad9TmyAqKMiA",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/Lbnu8jpUi0ad9TmyAqKMiA",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/y-xBIo6-80GdViQ_Fs8J4w",
+  "Created": "2025-04-06T18:17:42.7042873Z",
+  "Updated": "2025-04-06T18:17:42.7042873Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

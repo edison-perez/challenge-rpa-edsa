@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="mm1ZrXe6BEyj52Lke1ycQg" Reference="DFMpLOzGakiwtKuOkouixA/FyQTCYSod0yOFDecv4thUQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com" CVScreenId="836ee2cc-8260-4c85-96c7-3e00b8858d68" CvTextArea="1526, 175, 17, 13" CvTextArgument="ES" CvType="Text" DesignTimeRectangle="1490, 152, 58, 55" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl id='icp-nav-flyout' tag='DIV' type='' class='nav-div' aaname='       ' check:innerText='ES' /&gt;" Guid="15d7cf8d-d297-4f80-acbb-0001ccf8049e" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete">
+      <imageRef attrName="InformativeScreenshot" originalValue="4a493b421703c25c43b0337f067dc96d.png" xmlns="">0UI1eseyNjEyhxzla4k7n5g</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Hover</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

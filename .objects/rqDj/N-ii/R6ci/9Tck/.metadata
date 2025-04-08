@@ -1,0 +1,13 @@
+﻿{
+  "Name": "CLP - peso chileno",
+  "Type": "Element",
+  "Id": "9TckIO6I8EOmIAK4NYN2Ag",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/9TckIO6I8EOmIAK4NYN2Ag",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-02T23:58:54.5531918Z",
+  "Updated": "2025-04-02T23:58:54.5531918Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

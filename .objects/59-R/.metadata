@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Amazon.com en espanol. Gasta menos. Sonríe más.",
+  "Type": "App",
+  "Id": "59-ROQszHkqhjEtRlXBC6w",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/59-ROQszHkqhjEtRlXBC6w",
+  "Created": "2025-04-02T15:19:25.9082713Z",
+  "Updated": "2025-04-02T15:19:25.9082713Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

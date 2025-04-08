@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="qb-_Od9WAUWu6nQbnfcxjA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/Homemory-el%C3%A9ctricas-aniversarios-funerales-Halloween/dp/B0B31KL5J2/ref=sr_1_1_sspa" DesignTimeRectangle="1468, 486, 206, 100" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl id='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='DIV' type='' class='a-spacing-base' aaname='' /&gt;" Guid="edd3684b-6391-4996-86d4-90781cd8a9a0" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Homemory - 12 velas de té LED, sin llama, a pilas, duran más de 200 horas, falsas, eléctricas, ideales como vela votiva, para aniversarios, centros de mesa de boda, funerales, Halloween y Navidad : Herramientas y Mejoras del Hogar' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="ffb4bfd0986c6927908c93611c5d4a96.png" xmlns="">0cvmkWMCnNUCRkxZW1B5qPg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

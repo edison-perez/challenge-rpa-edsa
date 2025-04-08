@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="DJrFZLyQhUaimYhz82k7xQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/Tocirelo-Juguetes-interactivo-interior-el%C3%A9ctrico/dp/B086QRHNRG/ref=sr_1_1_sspa" CVScreenId="4e4f6564-f6d7-4fb2-9881-a7715d254075" DesignTimeRectangle="1657, 697, 17, 17" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl parentid='newAccordionCaption_feature_div' tag='SPAN' aaname=' Precio sin oferta ' /&gt;&lt;nav up='4' /&gt;&lt;webctrl parentid='newAccordionRow_1' tag='I' /&gt;" Guid="9ff2ba99-b601-413b-b2ea-776b1f7abc6a" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com/*' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="241bbd05f2d5f8de481a737cd08e6c6b.png" xmlns="">0ogLknWfKyEyWDeNLdsYj8A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

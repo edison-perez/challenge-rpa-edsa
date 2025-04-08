@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Amazon.com en espanol. Gasta menos. So",
+  "Type": "Screen",
+  "Id": "7VYjaWhFnkiqG7EKWbelGg",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/7VYjaWhFnkiqG7EKWbelGg",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/C9-HBrrvP02j6FMIO0Hilw",
+  "Created": "2025-04-02T19:18:52.3167942Z",
+  "Updated": "2025-04-02T19:18:52.3167942Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

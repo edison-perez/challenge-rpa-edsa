@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Enviar a",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "2-SM5JJt-UK0pKrPuFguyQ",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/2-SM5JJt-UK0pKrPuFguyQ",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/uORZ-VTqNkqtcrAAzkHeUg",
+  "Created": "2025-04-04T17:31:42.2935858Z",
+  "Updated": "2025-04-04T17:31:42.2935858Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

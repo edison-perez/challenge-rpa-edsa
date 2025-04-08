@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Get Text-modena",
+  "Type": "Element",
+  "Id": "X2-Rk7lgaU-7C_mCKW2N-w",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/X2-Rk7lgaU-7C_mCKW2N-w",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-03T00:15:52.4234248Z",
+  "Updated": "2025-04-03T00:15:52.4234248Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

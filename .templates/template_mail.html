@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      max-width: 600px;
+      margin: auto;
+    }
+    .screenshot {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .exception-details {
+      margin-top: 20px;
+      background-color: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 15px;
+      font-family: "Courier New", monospace;
+    }
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>⚠️ Error en Proceso UiPath</h2>
+
+    <p>Hola,</p>
+    <p>Se ha producido una excepción durante la ejecución del proceso <strong>[NombreDelProceso]</strong> a las <strong>[Hora]</strong> del <strong>[Fecha]</strong>.</p>
+
+    <div class="exception-details">
+      <p class="label">Mensaje de la excepción:</p>
+      <p>[Excepcion.Message]</p>
+
+      <p class="label">Fuente:</p>
+      <p>[Excepcion.Source]</p>
+
+      <p class="label">Stack Trace:</p>
+      <pre>[Excepcion.StackTrace]</pre>
+    </div>
+
+    <p>Por favor, revisa los detalles anteriores para investigar el incidente.</p>
+
+    <p>Saludos Cordiales</p>
+  </div>
+</body>
+</html>

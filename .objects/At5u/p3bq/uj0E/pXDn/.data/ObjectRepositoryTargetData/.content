@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="FKpoS2x8oU-KUE2-lUXIIw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/-/es/Cuchillo-carnicero-inoxidable-profesional-restaurantes/dp/B08BX7FMQN/ref=sr_1_1" DesignTimeRectangle="1473, 415, 193, 78" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='outOfStock' tag='SPAN' /&gt;" Guid="f74f482c-a6fe-4168-b235-0a4df50c4f71" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Cuchillo de carnicero de 7 pulgadas, cuchillo de carnicero para carne, hoja y mango de acero inoxidable de grado profesional, perfecto para restaurantes y uso en la cocina casera : Hogar y Cocina' /&gt;" SearchSteps="Selector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="49efd7224d3939965538faaf8e8fa936.png" xmlns="">0HWsbYJk-wEqKXSyoBWWeOw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetAttributeGeneric</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

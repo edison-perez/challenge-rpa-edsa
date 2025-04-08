@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="wABD05_flEuqtTkir5aqlA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/alimentaci%C3%B3n-850W-Certified-tarjetas-gr%C3%A1ficas/dp/B08F1NFSG4/ref=sr_1_2_sspa" CVScreenId="d6fe9666-0dc2-412c-aedb-2ea146d52a6f" CvTextArea="1616, 570, 38, 13" CvType="AnyWordGroup" DesignTimeRectangle="1617, 568, 36, 18" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-2' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-base' /&gt;" Guid="35be10e8-d875-4787-824d-9fb7a2d6e0ec" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Segotep Fuente de alimentación GM850 850W, PCIe 5.1 y ATX 3.1 Full Modular 80 Plus Gold Certified Gaming PSU para NVIDIA RTX 20/30/40/50 Series y tarjetas gráficas AMD : Electrónica' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="d6fe9666-0dc2-412c-aedb-2ea146d52a6f" DesignTimeRectangle="8, 95, 0, 0" ElementType="Text" FullSelectorArgument="&lt;webctrl tableCol='3' tag='TD' rowName='  Envío de AmazonGlobal  ' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='TD' colName='  Precio  ' rowName='  Envío de AmazonGlobal  ' /&gt;" Guid="79c01269-f3c8-4b70-9070-e413f3114083" SearchSteps="Selector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="3965993d8b1484f06c42016ce9a7c2d2.png" xmlns="">08Zb4iGdUOE2tw1SrhLdw2g</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

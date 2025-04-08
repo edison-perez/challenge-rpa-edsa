@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="vn4bUIvrf0mDMx8-XDQbmA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/Adaptador-plegable-ELECTRONICS-cargador-iPhone16/dp/B0CGVSRSQY/ref=sr_1_1_sspa" CVScreenId="249b88d8-f8d1-4cea-a2ea-366107de6f3f" CvElementArea="852, 477, 23, 25" CvType="ArrowButton" DesignTimeRectangle="855, 480, 16, 16" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl isleaf='1' parentid='acrPopover' tag='I' type='' class='a-icon a-icon-popover' aaname='' /&gt;" Guid="88ba3444-e405-405e-ab38-2cefff9919ba" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Adaptador de carga rápida USB-C de 30 W, (plegable) TETON ELECTRONICS PD Bloque de cargador de pared PD QC 3.0 PPS cargador de doble puerto tipo C para iPhone16/15/14/13, Samsung S21/S22, Note 20, : Celulares y Accesorios' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="d5ff39af850eb95270d049c4b3b306a1.png" xmlns="">0E_nM9F3vZUmNlcCcWGcoQg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="MjAeukDPI0es1LmSe91UXg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/desbloqueo-dactilares-antiara%C3%B1azos-compatible-protectora/dp/B0C5R3GHJ9/ref=sr_1_1_sspa" CVScreenId="6fb205d0-41cb-45d0-943f-bc094170ee6c" CvTextArea="1551, 405, 53, 14" CvTextArgument="Detalles" CvType="Text" DesignTimeRectangle="1552, 404, 55, 18" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' aaname=' Detalles ' innertext=' Detalles ' idx='1' /&gt;" Guid="31273bdc-e0bc-4f91-adde-4d3b22aebda2" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.amazon.com*' /&gt;" SearchSteps="Selector, CV" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="10cbe19926c640d7a84a3940359b0fa7.png" xmlns="">03GefBNxxX0qLMvAst3a2tw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

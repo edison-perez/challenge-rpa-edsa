@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="4UcUCgWZoUSGkKw688t0dA" Reference="DFMpLOzGakiwtKuOkouixA/BO4b5BITakmm_DyXJnsOsg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com" CVScreenId="654392de-7bca-4c3c-adfc-e7a7dbc0367c" CvElementArea="1419, 102, 50, 44" CvType="Button" DesignTimeRectangle="1422, 105, 45, 40" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' type='submit' class='nav-input nav-progressive-attribute' aaname='Ir' check:text='Ir' /&gt;" Guid="fc6896a1-ca03-4bfc-8477-e351bf4755af" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="Complete">
+      <imageRef attrName="InformativeScreenshot" originalValue="12c20a08a5b068267e5759b41a34a8f1.png" xmlns="">01-Qk1JQ71kGis8JfrrJFQQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

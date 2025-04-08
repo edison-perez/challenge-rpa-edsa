@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="74USZWZ5Mk-14kuIiJewwA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/Pokemon-Trainer-Guess-Legacys-Will/dp/B0947GLNDG/ref=sr_1_21_sspa" CVScreenId="8cab7e3a-7f10-49c4-85bd-8befc265a29e" CvTextArea="1501, 506, 110, 13" CvType="AnyWordGroup" DesignTimeRectangle="1503, 505, 108, 17" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl aaname=' - peso chileno' parentid='nav-flyout-icp' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='nav-flyout-icp' tag='SPAN' type='' class='' /&gt;" Guid="7b6614a3-a3fe-4203-9662-b017acc61085" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Pokemon Trainer Guess Legacy&amp;apos;s Edition Toy, I Will Guess It! - Juego electrónico con reconocimiento de voz, cerebro adivinador de Pokémon Go, juego de mesa digital : Juguetes y Juegos' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V5" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="8cab7e3a-7f10-49c4-85bd-8befc265a29e" DesignTimeRectangle="8, 95, 0, 0" ElementType="Text" FullSelectorArgument="&lt;webctrl class='icp-flyout-change' parentid='nav-flyout-icp' tag='A' href='/customer-preferences/edit?ref_=icp_cop_flyout_change*' /&gt;&lt;nav up='1' /&gt;&lt;webctrl parentid='nav-flyout-icp' tag='SPAN' visibleinnertext='* - *' /&gt;" Guid="e5748b05-52b9-4cf5-9570-cbe3c8bc5377" SearchSteps="Selector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="801d9c96bedf998b2a30e3ff63d5fae6.png" xmlns="">0lVoibSnWQk6LMK9Yu41rIw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

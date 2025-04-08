@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="8DQkljvqpUGWRxKjAJFgpQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="amazon.com/Adaptador-universal-adaptador-internacional-alimentaci%C3%B3n/dp/B077XRXRZR/ref=sr_1_1_sspa" CVScreenId="ff4765b2-e42f-48ea-8f9a-9a9d6ff4ed3f" DesignTimeRectangle="807, 648, 323, 29" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl aria-role='radiogroup' tag='SPAN' type='' class='a-button-text a-declarative' aaname='' check:innerText='Australia' /&gt;" Guid="3e494af5-ea58-474f-97df-8e37c5149e06" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: Unidapt Adaptador de viaje universal, adaptador de enchufe internacional rápido 2,4A 4-USB enchufe de alimentación europeo, cargador de pared de CA - Toma mundial para Europa EE. UU. Reino Unido UE : Celulares y Accesorios' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="45ebf9ee6eee7812a1ac15404e2d38f9.png" xmlns="">0Nc4FvH4N9km-eH8vVhUujg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

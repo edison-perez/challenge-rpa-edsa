@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Listo",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "LFa1azsNYEiALVz-567exQ",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/LFa1azsNYEiALVz-567exQ",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-03T17:45:27.360869Z",
+  "Updated": "2025-04-03T17:45:27.360869Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

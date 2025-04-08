@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Click-Detalles",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "AuwUpv4hHES9X8UHBqjPag",
+  "Reference": "DFMpLOzGakiwtKuOkouixA/AuwUpv4hHES9X8UHBqjPag",
+  "ParentRef": "DFMpLOzGakiwtKuOkouixA/R6ciAWxjHUKDv85LDjm09w",
+  "Created": "2025-04-04T15:18:14.619046Z",
+  "Updated": "2025-04-04T15:18:14.619046Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
