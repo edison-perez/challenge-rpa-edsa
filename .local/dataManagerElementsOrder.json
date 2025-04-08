@@ -38,6 +38,8 @@
       "Path": "Framework/InitAllApplications.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "index&Sequence_13",
+        "forEachCurrentIndex&Sequence_16",
         "referenceIfPathExists&Sequence_9",
         "blnIsFileExists&Sequence_9",
         "strExtractText&Sequence_9",
@@ -46,7 +48,6 @@
         "strReplace&Sequence_9"
       ],
       "ArgumentsSectionElementsOrder": [
-        "dtReporte",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -161,6 +162,12 @@
       "Path": "Framework/CloseAllApplications.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "blnEncontrado&Sequence_2",
+        "dt_valoracion&Sequence_2",
+        "dtmFechaLlegadaAsset&Sequence_2",
+        "dtmFechaLlegada&Sequence_2",
+        "dt_Consulta2&Sequence_2",
+        "dt_Consulta1&Sequence_2",
         "strRutaReporte&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [
@@ -174,7 +181,6 @@
       "Path": "Sequence1.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "bolEncontrado&Sequence_1",
         "ExtractDataTable&Sequence_1",
         "str&Sequence_1",
         "dtReporte&Sequence_1",
@@ -185,9 +191,38 @@
         "dt_consulta2&Sequence_1",
         "dtmFechaLlegada&Sequence_1",
         "calificacion&Sequence_1",
-        "dt_valoracion&Sequence_1"
+        "dt_valoracion&Sequence_1",
+        "bolEncontrado&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/TakeScreenshot.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Screenshot&Sequence_1",
+        "ScreenshotFileInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Folder",
+        "io_FilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/RetryCurrentTransaction.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "in_SystemException",
+        "in_QueueRetry"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }
